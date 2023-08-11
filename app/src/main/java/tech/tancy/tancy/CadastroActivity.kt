@@ -32,19 +32,15 @@ class CadastroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastroBinding.inflate(layoutInflater) // infla o layout da activity_cadastro
         var view = binding.root // acessa tudo que está dentro do binding (activity_cadastro)
-
         setContentView(view) // seta o conteúdo da tela com o binding
 
         // cria as variaveis para acessar os elementos da tela
 
-        val btn = binding.buttonSign
-        val btnBack = binding.button2
-
-
+        val btnBack = binding.buttonLogin
 
 
         // cria a ação do botão
-        btn.setOnClickListener(){ view ->
+        btnBack.setOnClickListener(){ view ->
 
             // cria as variaveis para armazenar os valores dos elementos da tela
             val name = binding.editTextPersonName
