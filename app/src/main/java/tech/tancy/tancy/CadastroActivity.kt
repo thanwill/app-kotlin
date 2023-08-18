@@ -36,7 +36,8 @@ class CadastroActivity : AppCompatActivity() {
 
         // cria as variaveis para acessar os elementos da tela
 
-        val btnBack = binding.buttonLogin
+        val btnBack = binding.buttonBack
+        val btnSign = binding.buttonSign
 
 
         // cria a ação do botão
@@ -93,7 +94,7 @@ class CadastroActivity : AppCompatActivity() {
         // cria a ação do botão de voltar para a activity MainAcitivity
         btnBack.setOnClickListener(){
             // cria uma intent para acessar a MainActivity
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             // inicia a intent
             startActivity(intent)
 
@@ -110,5 +111,9 @@ class CadastroActivity : AppCompatActivity() {
         //btn.setOnClickListener(){ }
 
     }
+
+}
+
+class ActivityCadastroBinding {
 
 }
