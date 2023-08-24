@@ -2,6 +2,7 @@ package tech.tancy.tancy.data
 
 import android.content.Context
 import android.content.SharedPreferences
+import tech.tancy.tancy.Util
 import tech.tancy.tancy.data.model.LoggedInUser
 import java.io.IOException
 
@@ -51,9 +52,9 @@ class LoginDataSource {
 
     // Salva username e passwoed no shared preferences
     private fun salvarDados(username: String, password: String) {
-
-
-
+        saveData("username", username)
+        saveData("password", password)
+        //Util.exibirSnackbar(this, "Dados salvos com sucesso", 1)
     }
 
     // Verifica se os campos estão em branco
@@ -64,5 +65,7 @@ class LoginDataSource {
     private fun valoresDiferentes(username: String, password: String): Boolean {
         return username != password
     }
+
+
 
 }

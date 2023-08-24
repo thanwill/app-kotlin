@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace 'tech.tancy.tancy'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "tech.tancy.tancy"
