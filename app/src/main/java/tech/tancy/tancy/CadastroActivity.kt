@@ -80,9 +80,7 @@ class CadastroActivity : AppCompatActivity() {
                             else -> "Erro ao cadastrar o usuário."
                         }
 
-                        val snackbar = Snackbar.make(view, "$messageError", Snackbar.LENGTH_LONG)
-                        snackbar.setBackgroundTint(Color.RED)
-                        snackbar.show()
+                        Util.exibirToast(this, messageError)
 
                     }
 
