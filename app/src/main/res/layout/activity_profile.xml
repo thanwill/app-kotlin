@@ -7,31 +7,64 @@
     tools:context=".ProfileActivity">
 
     <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.066">
+
+        <TextView
+            android:id="@+id/textProfileTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seja bem-vindo,"
+            android:textSize="38dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="20dp" />
+
+        <TextView
+            android:id="@+id/textProfileEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            tools:text="jonathan14willian@gmail.com" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="	Hac ad nunc nulla enim, risus adipiscing pellentesque etiam, posuere commodo etiam. " />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="375dp"
         android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="86dp"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Voltar"
-            app:layout_constraintStart_toStartOf="@+id/editTextPhone"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
-
-        <Button
-            android:id="@+id/buttonSend"
+            android:id="@+id/buttonProfileLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="24dp"
-            android:text="Okay"
+            android:text="sair"
             app:layout_constraintEnd_toEndOf="@+id/editTextPhone"
             app:layout_constraintTop_toBottomOf="@+id/checkBox" />
     </LinearLayout>

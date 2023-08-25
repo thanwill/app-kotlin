@@ -30,17 +30,17 @@ class CadastroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        binding = ActivityCadastroBinding.inflate(layoutInflater) // infla o layout da activity_cadastro
-        var view = binding.root // acessa tudo que está dentro do binding (activity_cadastro)
-        setContentView(view) // seta o conteúdo da tela com o binding
+        binding = ActivityCadastroBinding.inflate(layoutInflater)
+        var view = binding.root
+        setContentView(view)
 
-        // cria as variaveis para acessar os elementos da tela
 
-        val btnBack = binding.buttonLogin
+        val btnRegister = binding.buttonRegisterSave
+        val btnBack = binding.buttonRegisterBack
 
 
         // cria a ação do botão
-        btnBack.setOnClickListener(){ view ->
+        btnRegister.setOnClickListener(){ view ->
 
             // cria as variaveis para armazenar os valores dos elementos da tela
             val name = binding.editTextPersonName
@@ -92,22 +92,10 @@ class CadastroActivity : AppCompatActivity() {
 
         // cria a ação do botão de voltar para a activity MainAcitivity
         btnBack.setOnClickListener(){
-            // cria uma intent para acessar a MainActivity
             val intent = Intent(this, MainActivity::class.java)
-            // inicia a intent
             startActivity(intent)
-
         }
-        
-        
 
-        /*val personName = findViewById<EditText>(R.id.editTextPersonName)
-        val personMail = findViewById<EditText>(R.id.editTextTextEmailAddress)
-        val personPhone = findViewById<EditText>(R.id.editTextPhone)
-        val checkWhats = findViewById<CheckBox>(R.id.checkBox)
-        val btn = findViewById<Button>(R.id.buttonSign)*/
-
-        //btn.setOnClickListener(){ }
 
     }
 
