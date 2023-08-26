@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,19 +14,60 @@
         android:theme="@style/Theme.Tancy"
         tools:targetApi="31">
         <activity
+            android:name=".ExOneActivity"
+            android:exported="false"
+            android:label="Atividade 1"
+            android:theme="@style/Theme.Tancy.NoActionBar" />
+
+        <activity android:name=".ExTwoActivity"
+            android:exported="false"
+            android:label="Atividade 2"
+            android:theme="@style/Theme.Tancy.NoActionBar" />
+
+        <activity android:name=".ExThreeActivity"
+            android:exported="false"
+            android:label="Atividade 3"
+            android:theme="@style/Theme.Tancy.NoActionBar" />
+
+        <activity android:name=".ExFourActivity"
+            android:exported="false"
+            android:label="Atividade 4"
+            android:theme="@style/Theme.Tancy.NoActionBar" />
+
+        <activity android:name=".ExFiveActivity"
+            android:exported="false"
+            android:label="Atividade 5"
+            android:theme="@style/Theme.Tancy.NoActionBar" />
+
+        <activity android:name=".ExSixActivity"
+            android:exported="false"
+            android:label="Atividade 6"
+            android:theme="@style/Theme.Tancy.NoActionBar" />
+
+        <activity android:name=".ExSevenActivity"
+            android:exported="false"
+            android:label="Atividade 7"
+            android:theme="@style/Theme.Tancy.NoActionBar" />
+
+        <activity
+            android:name=".ExercisesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_exercises" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false"
-            android:label="Seu perfil" />
+            android:label="Perfil" />
         <activity
             android:name=".CadastroActivity"
             android:exported="false"
-            android:label="Realize seu cadastro!" />
+            android:label="Cadastro" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="Faça login!">
+            android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

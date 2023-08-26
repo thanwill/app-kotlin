@@ -10,9 +10,31 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_register">Cadastre-se!</string>
-
-
+    <string name="atividade_um">1. Calcular o aumento que será dado a um funcionário, obtendo do usuário as seguintes informações: salário atual e a porcentagem de aumento. Apresentar o novo valor do salário e o valor do aumento.</string>
+    <string name="atividade_dois">2. Calcular o volume de uma caixa retangular, tendo como dados de entrada altura, largura e comprimento.</string>
+    <string name="atividade_tres">3. Calcular a idade de uma pessoa, tendo em vista que ela irá digitar o ano do seu nascimento. Evitar que o ano informado seja maior que o ano atual, ou menor que 1900.</string>
+    <string name="atividade_quatro">4. Calcular o consumo por litro de um carro, sendo que será informada a quantidade de quilômetros percorrido e a quantidade de litros abastecido.</string>
+    <string name="atividade_cinco">5. Calcular a média final de um aluno com base nas suas 4 notas bimestrais. Não permitir notas negativas, ou acima de 10 em cada bimestre.</string>
+    <string name="atividade_seis">6. Ler uma temperatura em graus Celsius e apresentá-la convertida em graus Fahrenheit. A fórmula de conversão: F ← (9*C+160)/5</string>
+    <string name="atividade_sete">7. Calcular e apresentar o volume de uma lata de óleo cilíndrica, a partir da leitura do raio da base e da altura. A fórmula: pi * raio² * altura.</string>
+    <string name="lorem">Lorem ipsum felis quisque, pretium morbi condimentum nunc, convallis nunc. </string>
     <string name="acessibility_phone">Informe seu número de telefone com DDD no padrão brasileiro."</string>
     <string name="acessibility_email">Informe seu número de telefone com DDD no padrão brasileiro."</string>
     <string name="acessibility_name">Informe seu número de telefone com DDD no padrão brasileiro."</string>
+    <string name="title_activity_exercises">ExercisesActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="submit" />
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>
