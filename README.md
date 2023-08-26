@@ -78,7 +78,8 @@ Por razões didáticas, o companion object em Kotlin foi abordado. Todas as Acti
 
 <img width="794" alt="image" src="https://github.com/thanwill/app-kotlin/assets/62673590/a58e8eaa-547c-487d-a3d2-3b07077ac4e9">
 
-Como melhoria futura, o estudo da implantação da <code>FragmentActivity</code> está sendo estudado.
+
+Como melhoria futura, a implantação da <code>FragmentActivity</code> está sendo estudado.
 
 A estrutura foi baseada nas experiências em sala e pesquisas pessoais, como por exemplo, o uso do viewBinding, a prática de clean code, funcionalidades do Firebase e características de UI/UX. 
 
