@@ -34,9 +34,9 @@ Para usar esta atividade, você precisará da IDE Android Studio ou qualquer out
 3. Compilar ou interpretar o código.
 4. Execute o código para testar os exercícios.
 
-## Parte do código
+## Sobre o código
 
-Aqui está um exemplo de parte do código para o primeiro exercício:
+Aqui está um exemplo de parte do código para os exercícios:
 
 ```kotlin
 class ExercisesList {
@@ -74,13 +74,17 @@ class ExercisesList {
 }
 ```
 
+Por razões didáticas, o companion object em Kotlin foi abordado. Todas as Activitys podem ser encontradas no arquivo ProfileActiviy, conforme imagem abaixo.
 
+<img width="794" alt="image" src="https://github.com/thanwill/app-kotlin/assets/62673590/a58e8eaa-547c-487d-a3d2-3b07077ac4e9">
 
-A estrutura usa é baseada nas experiências em sala e visam a aplicação de recomendações da fabricante para o uso de bibliotecas de mercado como o binding ou a técnica CleanCode.
+Como melhoria futura, o estudo da implantação da <code>FragmentActivity</code> está sendo estudado.
+
+A estrutura foi baseada nas experiências em sala e pesquisas pessoais, como por exemplo, o uso do viewBinding, a prática de clean code, funcionalidades do Firebase e características de UI/UX. 
 
 ## Telas de uso
 
-Abaixo, algumas intruções ilustradas para o uso:
+Abaixo, algumas intruções para o uso:
 
 ### Cadastro de usuário
 
@@ -111,7 +115,6 @@ Cada atividade usa uma Activity exclusiva, como é requerido nas exigências do 
 <img width="364" alt="image" src="https://github.com/thanwill/app-kotlin/assets/62673590/d29814fc-2cb7-4c15-b7d8-3ce573c2956b">
 
 Dependendo da versão Android utilizada em seu disponsitivo, é possível delizar o dedo no canto esquerdo para o centro da tela.
-
 
 ## Conclusão
 
