@@ -12,19 +12,33 @@ class ExercisesList {
             return largura * comprimento * altura
         }
 
-        fun calcularIdade(anoNascimento: Int){
-
+        // Retorna um inteiro com a idade
+        fun calcularIdade(anoNascimento: Int): String {
             val anoAtual = Calendar.getInstance().get(Calendar.YEAR)
-            val idade = anoAtual - anoNascimento
-            println("Sua idade é $idade")
+
+            // verifica se o ano é maior que o atual e maior que 1900
+            if (anoNascimento >= anoAtual || anoNascimento < 1900) {
+                return "Ano inválido, digite um ano entre 1900 e $anoAtual"
+            } else{
+                return "Você tem ${anoAtual - anoNascimento} anos."
+            }
+
         }
 
         fun calcularConsumoPorLitro(distancia: Double, combustivel: Double): Double {
             return distancia / combustivel
         }
 
-        fun calcularMediaFinal(nota1: Double, nota2: Double, nota3: Double, nota4: Double): Double {
-            return (nota1 + nota2 + nota3 + nota4) / 4
+        fun calcularMediaFinal(nota1: Double, nota2: Double, nota3: Double, nota4: Double): String {
+            // Não permitir notas negativas, ou acima de 10 em cada bimestre.
+
+            if (nota1 < 0 || nota1 > 10 || nota2 < 0 || nota2 > 10 || nota3 < 0 || nota3 > 10 || nota4 < 0 || nota4 > 10) {
+                return "Digite notas válidas"
+            } else {
+                val media = (nota1 + nota2 + nota3 + nota4) / 4
+                return "A média final é $media"
+            }
+
         }
 
         fun converterCelsiusParaFahrenheit(celsius: Double): Double {

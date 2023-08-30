@@ -181,7 +181,7 @@
                     android:id="@+id/textProfileInformation7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="string/atividade_sete"
+                    android:text="@string/atividade_sete"
                     android:textAlignment="textStart" />
 
                 <Button

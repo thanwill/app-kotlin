@@ -5,7 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import tech.tancy.tancy.data.ExercisesList
+import tech.tancy.tancy.databinding.ActivityExFiveBinding
+import tech.tancy.tancy.databinding.ActivityExFourBinding
 import tech.tancy.tancy.databinding.ActivityExOneBinding
+import tech.tancy.tancy.databinding.ActivityExSevenBinding
+import tech.tancy.tancy.databinding.ActivityExSixBinding
 import tech.tancy.tancy.databinding.ActivityExThreeBinding
 import tech.tancy.tancy.databinding.ActivityExTwoBinding
 import tech.tancy.tancy.databinding.ActivityProfileBinding
@@ -80,14 +84,7 @@ class ProfileActivity : AppCompatActivity() {
         btnLogout.setOnClickListener() {
             logout()
         }
-
-
     }
-
-    
-
-
-
 }
 
 class ExOneActivity : AppCompatActivity() {
@@ -104,8 +101,8 @@ class ExOneActivity : AppCompatActivity() {
         binding.buttonExOne.setOnClickListener() {
             val salario = binding.editExOneSalary.text.toString().toDouble()
             val reajuste = binding.editExOneReajuste.text.toString().toDouble()
-            val resultado = String.format("%.2f", ExercisesList.calcularReajuste(salario, reajuste))
-            binding.textExOneResult.text = "O valor do reajuste será de R$ $resultado"
+            val resultado = ExercisesList.calcularReajuste(salario, reajuste)
+            binding.textExOneResult.text = "O valor do reajuste será de R$ ${String.format("%.2f",resultado)}. O novo salário será de R$ ${String.format("%.2f", salario + resultado)}."
         }
     }
 }
@@ -143,42 +140,96 @@ class ExThreeActivity : AppCompatActivity(){
         binding.buttonExThree.setOnClickListener() {
             // calcual a idade
             val anoNascimento = binding.editExThreeAno.text.toString().toInt()
-            val resultado = String.format("%d", ExercisesList.calcularIdade(anoNascimento))
-            binding.textExThreeResult.text = "Sua idade é de $resultado anos"
+            val resultado = ExercisesList.calcularIdade(anoNascimento)
+            binding.textExThreeResult.text = resultado
 
         }
     }
 }
 
 class ExFourActivity : AppCompatActivity(){
+    private lateinit var binding: ActivityExFourBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ex_four)
+        binding = ActivityExFourBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        binding.buttonExFour.setOnClickListener() {
+            val distancia = binding.editExFourDistancia.text.toString().toDouble()
+            val combustivel = binding.editExFourCombustivel.text.toString().toDouble()
+
+            // trata o empty String
+            if ( distancia == 0.0 || combustivel == 0.0 ){
+                binding.textExFourResult.text = "Digite um valor válido"
+                return@setOnClickListener // sai da função
+            }else{
+                val resultado = String.format("%.2f", ExercisesList.calcularConsumoPorLitro(distancia, combustivel))
+                binding.textExFourResult.text = "O consumo por litro é de $resultado km/l"
+            }
+
+        }
     }
 }
 
 class ExFiveActivity : AppCompatActivity(){
+    private lateinit var binding: ActivityExFiveBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ex_five)
+        binding = ActivityExFiveBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        binding.buttonExFive.setOnClickListener() {
+            val nota1 = binding.editExFiveNota1.text.toString().toDouble()
+            val nota2 = binding.editExFiveNota2.text.toString().toDouble()
+            val nota3 = binding.editExFiveNota3.text.toString().toDouble()
+            val nota4 = binding.editExFiveNota4.text.toString().toDouble()
+
+            // trata o empty String
+            if ( nota1 == 0.0 || nota2 == 0.0 || nota3 == 0.0 || nota4 == 0.0 ){
+                binding.textExFiveResult.text = "Digite um valor válido"
+                return@setOnClickListener // sai da função
+            }else{
+                val resultado = ExercisesList.calcularMediaFinal(nota1, nota2, nota3, nota4)
+                binding.textExFiveResult.text = resultado
+            }
+        }
     }
 }
 
 class ExSixActivity : AppCompatActivity(){
-
+    private lateinit var binding: ActivityExSixBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ex_six)
+        binding = ActivityExSixBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        binding.buttonExSix.setOnClickListener() {
+            val celsius = binding.editExSixCelsius.text.toString().toDouble()
+            val resultado = String.format("%.2f", ExercisesList.converterCelsiusParaFahrenheit(celsius))
+            binding.textExSixResult.text = "$resultado ºF"
+        }
     }
 }
 
 class ExSevenActivity : AppCompatActivity(){
-
+    private lateinit var binding: ActivityExSevenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ex_seven)
+        binding = ActivityExSevenBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        binding.buttonExSeven.setOnClickListener() {
+            val raio = binding.editExSevenRaio.text.toString().toDouble()
+            val altura = binding.editExSevenAltura.text.toString().toDouble()
+            val resultado = String.format("%.2f", ExercisesList.calcularVolumeLata(raio, altura))
+            binding.textExSevenResult.text = "O volume da lata é de $resultado m³"
+        }
     }
 }
 

@@ -21,9 +21,34 @@ class MainActivity : AppCompatActivity() {
         val btnLogin = binding.buttonLogin
         val btnRegister = binding.textNewRegister
 
+        // Recupera o estado de login do usuário do sharedPreferences
+        val sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE)
+        val logged = sharedPreferences.getBoolean("LOGGED", false) //
+
+        // Se o usuário estiver logado, direciona para a tela de perfil
+        if(logged){
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+            return
+        }
+
         fun login(){
             val email = binding.editLoginEmail.text.toString()
             val password = binding.editLoginPassword.text.toString()
+            // verifica se os campos estão vazios
+
+            if(email.isEmpty() || password.isEmpty()){
+                Toast.makeText(baseContext, "Preencha todos os campos.",
+                    Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            // verifica se o usuário já está logado
+            if(auth.currentUser != null){
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                return
+            }
 
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
@@ -36,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                         val editor = sharedPreferences.edit()
                         editor.apply{
                             putString("EMAIL", email)
-                            putBoolean("LOGGED", true)
+                            putBoolean("LOGGED", true) // salva o estado de login como true
                         }.apply()
 
                         Toast.makeText(baseContext, "Login realizado com sucesso.",
