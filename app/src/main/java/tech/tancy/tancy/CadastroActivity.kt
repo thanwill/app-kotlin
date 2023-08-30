@@ -48,7 +48,7 @@ class CadastroActivity : AppCompatActivity() {
             }else{
 
                 auth.createUserWithEmailAndPassword("${mail.text}", "${password.text}").addOnCompleteListener{ cadastro ->
-                    if ( cadastro.isSuccessful ){
+                    if ( cadastro.isSuccessful  ){
                         val snackbar = Snackbar.make(view, "Cadastro realizado com sucesso", Snackbar.LENGTH_SHORT )
                         snackbar.setBackgroundTint(Color.BLUE)
                         name.setText("")

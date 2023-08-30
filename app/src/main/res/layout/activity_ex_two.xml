@@ -32,12 +32,18 @@
             android:layout_height="wrap_content"
             android:text="@string/atividade_dois" />
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            app:srcCompat="@drawable/caixa_volume" />
+
         <EditText
             android:id="@+id/editExTwoAltura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Volume"
+            android:hint="Altura"
             android:inputType="numberDecimal"
             android:textSize="18sp" />
 
