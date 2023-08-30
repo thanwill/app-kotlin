@@ -2,6 +2,10 @@ package tech.tancy.tancy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import tech.tancy.tancy.data.Carro
+import tech.tancy.tancy.data.Heroi
+import tech.tancy.tancy.data.Pessoa
 import tech.tancy.tancy.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -11,14 +15,14 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater) // infla o layout da activity_cadastro
         var view = binding.root // acessa tudo que está dentro do binding (activity_cadastro)
-        setContentView(view) // seta o conteúdo da tela com o binding
 
+        var p1 = Pessoa("Tancy", 20)
+        var c1 = Carro()
+        var h1 = Heroi("Tancy", "Super Força", 20)
 
-        val textViewRegister = binding.textViewRegister
-        textViewRegister.setOnClickListener {
-            // cria uma intent para acessar a CadastroActivity
-            val intent = android.content.Intent(this, CadastroActivity::class.java)
-            startActivity(intent) // inicia a intent
-        }
+        Log.d("TESTE", p1.toString())
+        Log.d("TESTE", c1.toString())
+        Log.d("TESTE", h1.toString())
+
     }
 }
