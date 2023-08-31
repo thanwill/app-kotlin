@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import tech.tancy.tancy.data.Pessoa
 import tech.tancy.tancy.databinding.ActivityCadastroBinding
 
 
@@ -28,13 +29,42 @@ class CadastroActivity : AppCompatActivity() {
         setContentView(view) // seta o conteúdo da tela com o binding
 
         // cria as variaveis para acessar os elementos da tela
+        val email = binding.editTextTextEmailAddress
+        val password = binding.editTextPassword
+        val name = binding.editTextPersonName
+        val phone = binding.editTextPhone
+        val checkWhats = binding.checkBox2
 
-        val btnBack = binding.buttonBack
+        fun validarCadastro(){
+            if(email.text.toString().isEmpty() || password.text.toString().isEmpty() || name.text.toString().isEmpty() || phone.text.toString().isEmpty() ){
+                val snackbar = Snackbar.make( view, "Preencha todos os campos!", Snackbar.LENGTH_LONG )
+                snackbar.setBackgroundTint(Color.RED)
+                snackbar.show()
+            }else{
+                val snackbar = Snackbar.make( view, "Os dados foram validados!", Snackbar.LENGTH_LONG )
+                snackbar.setBackgroundTint(Color.BLUE)
+                snackbar.show()
+            }
+        }
+
+        // cria um objeto do tipo pessoa
+        val pessoa = Pessoa()
+
+        fun cadastrarPessoa(){
+            pessoa.nome = name.text.toString()
+            pessoa.email = email.text.toString()
+            pessoa.telefone = phone.text.toString()
+            pessoa.senha = password.text.toString()
+            pessoa.checkWhats = checkWhats.isChecked
+        }
+
+
+        val buttonCadastroLocal = binding.buttonCadastroLocal
         val btnSign = binding.buttonSign
 
 
         // cria a ação do botão
-        btnBack.setOnClickListener(){ view ->
+        btnSign.setOnClickListener(){ view ->
 
             // cria as variaveis para armazenar os valores dos elementos da tela
             val name = binding.editTextPersonName
@@ -83,12 +113,9 @@ class CadastroActivity : AppCompatActivity() {
         }
 
         // cria a ação do botão de voltar para a activity MainAcitivity
-        btnBack.setOnClickListener(){
-            // cria uma intent para acessar a MainActivity
-            val intent = Intent(this, LoginActivity::class.java)
-            // inicia a intent
-            startActivity(intent)
-
+        buttonCadastroLocal.setOnClickListener(){
+            validarCadastro()
+            cadastrarPessoa()
         }
         
         

@@ -24,9 +24,8 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="Cadastre-se"
-            android:textSize="18dp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
         <Space
@@ -147,11 +146,11 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonBack"
+                android:id="@+id/buttonCadastroLocal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Voltar" />
+                android:text="Cadastro local" />
 
             <Space
                 android:layout_width="wrap_content"
