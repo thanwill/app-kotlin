@@ -27,14 +27,26 @@ class CadastroActivity : AppCompatActivity() {
 
         // converte o valor da hora para double
 
+        // snackbar
+        val snackbar = Snackbar.make(view, "Preencha todos os campos!", Snackbar.LENGTH_LONG)
+        snackbar.setAction("OK", {
+            snackbar.dismiss()
+        })
+        snackbar.setActionTextColor(Color.WHITE)
+        snackbar.setTextColor(Color.WHITE)
+        snackbar.setBackgroundTint(Color.RED)
+        snackbar.show()
+
+
 
         buttonRegister.setOnClickListener(){
             if(nome.isEmpty() || horas_tabalhadas.isEmpty() || valor_hora.isEmpty()){
                 Snackbar.make(view, "Preencha todos os campos!", Snackbar.LENGTH_LONG).show()
             }else{
-                val funcionario = Funcionario(nome.toString(), "Desenvolvedor", horas_tabalhadas.toString().toDouble(), valor_hora.toString().toDouble())
                 val intent = Intent(this, ResultadoActivity::class.java)
-                intent.putExtra("funcionario", funcionario.toString())
+                intent.putExtra("nome", nome)
+                intent.putExtra("horas_trabalhadas", horas_tabalhadas)
+                intent.putExtra("valor_hora", valor_hora)
                 startActivity(intent)
             }
         }

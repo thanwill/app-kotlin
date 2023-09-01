@@ -15,11 +15,23 @@ class ResultadoActivity : AppCompatActivity() {
         setContentView(view)
 
 
-        val funcionario = intent.getStringExtra("funcionario")
+        val nome = intent.getStringExtra("nome").toString()
+        val cargo = intent.getStringExtra("cargo").toString()
+        val valor_hora = intent.getStringExtra("valor_hora").toString().toDouble()
+        val horas_trabalhadas = intent.getStringExtra("horas_trabalhadas").toString().toDouble()
+
+        val funcionario = Funcionario(nome, cargo, horas_trabalhadas, valor_hora)
+12
         val textViewNome = binding.textViewNome
         val textViewCargo = binding.textViewCargo
         val textViewSalario = binding.textViewSalario
         val textViewAbono = binding.textViewAbono
+
+        textViewNome.text = funcionario.nome
+        textViewCargo.text = funcionario.cargo
+        textViewSalario.text = funcionario.salario_liquido.toString()
+        textViewAbono.text = funcionario.abono.toString()
+
 
 
     }
