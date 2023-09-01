@@ -5,15 +5,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthEmailException
-import com.google.firebase.auth.FirebaseAuthException
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthInvalidUserException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
-import tech.tancy.tancy.data.Pessoa
 import tech.tancy.tancy.databinding.ActivityCadastroBinding
 
 
@@ -28,110 +20,25 @@ class CadastroActivity : AppCompatActivity() {
         var view = binding.root // acessa tudo que está dentro do binding (activity_cadastro)
         setContentView(view) // seta o conteúdo da tela com o binding
 
-        // cria as variaveis para acessar os elementos da tela
-        val email = binding.editTextTextEmailAddress
-        val password = binding.editTextPassword
-        val name = binding.editTextPersonName
-        val phone = binding.editTextPhone
-        val checkWhats = binding.checkBox2
+        val buttonRegister = binding.buttonSign
+        val nome = binding.editTextFuncionarioNome.text
+        val horas_tabalhadas = binding.editTextFuncionarioHoras.text
+        val valor_hora = binding.editTextFuncionarioValor.text
 
-        fun validarCadastro(){
-            if(email.text.toString().isEmpty() || password.text.toString().isEmpty() || name.text.toString().isEmpty() || phone.text.toString().isEmpty() ){
-                val snackbar = Snackbar.make( view, "Preencha todos os campos!", Snackbar.LENGTH_LONG )
-                snackbar.setBackgroundTint(Color.RED)
-                snackbar.show()
+        // converte o valor da hora para double
+
+
+        buttonRegister.setOnClickListener(){
+            if(nome.isEmpty() || horas_tabalhadas.isEmpty() || valor_hora.isEmpty()){
+                Snackbar.make(view, "Preencha todos os campos!", Snackbar.LENGTH_LONG).show()
             }else{
-                val snackbar = Snackbar.make( view, "Os dados foram validados!", Snackbar.LENGTH_LONG )
-                snackbar.setBackgroundTint(Color.BLUE)
-                snackbar.show()
+                val funcionario = Funcionario(nome.toString(), "Desenvolvedor", horas_tabalhadas.toString().toDouble(), valor_hora.toString().toDouble())
+                val intent = Intent(this, ResultadoActivity::class.java)
+                intent.putExtra("funcionario", funcionario.toString())
+                startActivity(intent)
             }
         }
-
-        // cria um objeto do tipo pessoa
-        val pessoa = Pessoa()
-
-        fun cadastrarPessoa(){
-            pessoa.nome = name.text.toString()
-            pessoa.email = email.text.toString()
-            pessoa.telefone = phone.text.toString()
-            pessoa.senha = password.text.toString()
-            pessoa.checkWhats = checkWhats.isChecked
-        }
-
-
-        val buttonCadastroLocal = binding.buttonCadastroLocal
-        val btnSign = binding.buttonSign
-
-
-        // cria a ação do botão
-        btnSign.setOnClickListener(){ view ->
-
-            // cria as variaveis para armazenar os valores dos elementos da tela
-            val name = binding.editTextPersonName
-            val mail = binding.editTextTextEmailAddress
-            val phone = binding.editTextPhone
-            val password = binding.editTextPassword
-
-            if(mail.text.toString().isEmpty() || name.text.toString().isEmpty() || phone.text.toString().isEmpty() ){
-                val snackbar = Snackbar.make( view, "Preencha todos os campos!", Snackbar.LENGTH_LONG )
-                snackbar.setBackgroundTint(Color.RED)
-                snackbar.show()
-            }else{
-
-                auth.createUserWithEmailAndPassword("${mail.text}", "${password.text}").addOnCompleteListener{ cadastro ->
-                    if ( cadastro.isSuccessful ){
-                        val snackbar = Snackbar.make(view, "Cadastro realizado com sucesso", Snackbar.LENGTH_SHORT )
-                        snackbar.setBackgroundTint(Color.BLUE)
-                        name.setText("")
-                        mail.setText("")
-                        phone.setText("")
-                        password.setText("")
-                        snackbar.show()
-                    }
-                }
-                    .addOnFailureListener { e ->
-
-                        val messageError = when(e){
-                            // senha com menos de 6 caracteres
-                            is FirebaseAuthWeakPasswordException -> "Digite uma senha com no mínimo 6 dígitos."
-                            is FirebaseAuthInvalidCredentialsException -> "Digite um e-mail válido."
-                            is FirebaseAuthUserCollisionException -> "Este e-mail já está cadastrado."
-                            is FirebaseAuthEmailException -> "Houve um erro com o e-mail fornecido."
-                            is FirebaseAuthInvalidUserException -> "Esta conta já foi excluída."
-                            is FirebaseNetworkException -> "Sem conexão com a internet."
-                            is FirebaseAuthException -> "Não foi possível concluir o cadastro."
-                            else -> "Erro ao cadastrar o usuário."
-                        }
-
-                        val snackbar = Snackbar.make(view, messageError, Snackbar.LENGTH_SHORT )
-
-                    }
-
-            }
-
-
-        }
-
-        // cria a ação do botão de voltar para a activity MainAcitivity
-        buttonCadastroLocal.setOnClickListener(){
-            validarCadastro()
-            cadastrarPessoa()
-        }
-        
-        
-
-        /*val personName = findViewById<EditText>(R.id.editTextPersonName)
-        val personMail = findViewById<EditText>(R.id.editTextTextEmailAddress)
-        val personPhone = findViewById<EditText>(R.id.editTextPhone)
-        val checkWhats = findViewById<CheckBox>(R.id.checkBox)
-        val btn = findViewById<Button>(R.id.buttonSign)*/
-
-        //btn.setOnClickListener(){ }
 
     }
-
-}
-
-class ActivityCadastroBinding {
 
 }
