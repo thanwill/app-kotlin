@@ -13,16 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tancy"
         tools:targetApi="31">
-        <activity
-            android:name=".ResultadoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CadastroActivity"
+        <activity android:name=".MainActivity"
             android:exported="true"
-            android:label="Segunda aula">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
