@@ -11,29 +11,31 @@ import tech.tancy.tancy.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var carroAdapter: CarroAdapter
+    private lateinit var compromissoAdapter: CompromissoAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        carroAdapter = CarroAdapter(context = this)
-        // informar o contexto em que a recycler view será inicializada
+        compromissoAdapter = CompromissoAdapter(context = this)
 
-        binding.recyclerCarros.layoutManager = LinearLayoutManager(this)
-        binding.recyclerCarros.adapter = carroAdapter
+        binding.recyclerCompromissos.layoutManager = LinearLayoutManager(this)
+        binding.recyclerCompromissos.adapter = compromissoAdapter
 
-        binding.buttonAddCarro.setOnClickListener(){
+        binding.buttonAddCompromisso.setOnClickListener(){
             // iniciar a CadastroActivity
             startActivity(Intent(this, CadastroActivity::class.java ))
+
         }
+
+
     }
 
     override fun onStart() {
         super.onStart()
         // atualizar itens da recycler view
-        carroAdapter.notifyDataSetChanged()
+        compromissoAdapter.notifyDataSetChanged()
     }
 }
 
@@ -47,14 +49,17 @@ class CadastroActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonCadastrar.setOnClickListener(){
-            val marca = binding.editTextMarca.text.toString()
-            val modelo = binding.editTextModelo.text.toString()
-            val ano = binding.editTextAno.text.toString().toInt()
-            val cor = binding.editTextCor.text.toString()
-            val preco = binding.editTextPreco.text.toString().toDouble()
 
-            val carro = Carro(marca, modelo, ano, cor, preco)
-            ListaCarros.adicionarCarro(carro)
+
+            val compromisso = Compromissos(
+                binding.editTextTitulo.text.toString(),
+                binding.editTextDescricao.text.toString(),
+                binding.editTextData.text.toString(),
+                binding.editTextInicio.text.toString(),
+                binding.editTextFim.text.toString()
+            )
+
+            ListaCompromissos.adicionarCompromisso(compromisso)
 
             finish()
         }

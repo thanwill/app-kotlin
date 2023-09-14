@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Página de cadastro"
+        android:text="Página de edição"
         android:textSize="28dp"
         android:textStyle="bold" />
 
@@ -23,14 +22,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="40dp"
-        android:text="Cadastre aqui os detalhes do seu compromisso." />
+        android:text="Atualize suas informações." />
 
     <EditText
-        android:id="@+id/editTextTitulo"
+        android:id="@+id/editTextEditarMarca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Título"
+        android:hint="Marca"
         android:inputType="text" />
 
     <Space
@@ -38,11 +37,11 @@
         android:layout_height="15dp" />
 
     <EditText
-        android:id="@+id/editTextDescricao"
+        android:id="@+id/editTextEditarModelo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Descrição"
+        android:hint="Modelo"
         android:inputType="text" />
 
     <Space
@@ -50,11 +49,11 @@
         android:layout_height="15dp" />
 
     <EditText
-        android:id="@+id/editTextData"
+        android:id="@+id/editTextEditarCor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Data"
+        android:hint="Cor"
         android:inputType="text" />
 
     <Space
@@ -62,30 +61,30 @@
         android:layout_height="15dp" />
 
     <EditText
-        android:id="@+id/editTextInicio"
+        android:id="@+id/editTextEditarAno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Início"
-        android:inputType="text" />
+        android:hint="Ano"
+        android:inputType="number" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="15dp" />
 
     <EditText
-        android:id="@+id/editTextFim"
+        android:id="@+id/editTextEditarPreco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Fim"
-        android:inputType="text" />
+        android:hint="Preço"
+        android:inputType="numberDecimal" />
 
     <Button
-        android:id="@+id/buttonCadastrar"
+        android:id="@+id/buttonEditar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Cadastrar" />
+        android:text="Salvar" />
 
 </LinearLayout>
