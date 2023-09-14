@@ -50,6 +50,34 @@ class CadastroActivity : AppCompatActivity() {
 
         binding.buttonCadastrar.setOnClickListener(){
 
+            // Realiza uma validaçao dos campos
+            if(binding.editTextTitulo.text.toString().isEmpty()){
+                binding.editTextTitulo.error = "Campo obrigatório"
+                return@setOnClickListener
+            }
+
+            if(binding.editTextDescricao.text.toString().isEmpty()){
+                binding.editTextDescricao.error = "Campo obrigatório"
+                return@setOnClickListener
+            }
+
+            if(binding.editTextData.text.toString().isEmpty()){
+                binding.editTextData.error = "Campo obrigatório"
+                return@setOnClickListener
+            }
+
+            if(binding.editTextInicio.text.toString().isEmpty()){
+                binding.editTextInicio.error = "Campo obrigatório"
+                return@setOnClickListener
+            }
+
+            if(binding.editTextFim.text.toString().isEmpty()){
+                binding.editTextFim.error = "Campo obrigatório"
+                return@setOnClickListener
+            }
+
+            // cria um objeto do tipo Compromissos
+
 
             val compromisso = Compromissos(
                 binding.editTextTitulo.text.toString(),

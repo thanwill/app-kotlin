@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="E-mail: admin@up.com" />
+        android:text="E-mail: admin" />
 
     <TextView
         android:id="@+id/textView10"
