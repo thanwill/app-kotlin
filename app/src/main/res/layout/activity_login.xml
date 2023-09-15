@@ -20,7 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:ems="10"
         android:hint="Informe seu e-mail"
         android:inputType="textEmailAddress" />
 
@@ -36,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:drawableEnd="@drawable/visibility_off_fill"
         android:ems="10"
         android:hint="Informe sua senha"
         android:inputType="numberPassword" />
