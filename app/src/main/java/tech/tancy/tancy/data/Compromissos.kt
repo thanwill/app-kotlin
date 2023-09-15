@@ -1,4 +1,4 @@
-package tech.tancy.tancy
+package tech.tancy.tancy.data
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import tech.tancy.tancy.DetalhesActivity
+import tech.tancy.tancy.R
 
 class Compromissos (var titulo: String, var descricao: String, var data: String, var horaInicio: String, var horaFim: String){
     override fun toString(): String {

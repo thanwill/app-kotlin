@@ -7,6 +7,8 @@ import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
 import com.google.android.material.snackbar.Snackbar
+import tech.tancy.tancy.data.Login
+import tech.tancy.tancy.data.Util
 import tech.tancy.tancy.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -49,26 +51,73 @@ class LoginActivity : AppCompatActivity() {
             return@setOnTouchListener false
         }
 
-        // cria um usuário no SharedPreferenc para ser comparado com as entradas do usuário
-        val sharedPreferences = getSharedPreferences("tancy", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("email", "admin")
-        editor.putString("senha", "2020")
-        editor.apply()
+
 
         // botão de login
-
         binding.buttonLogin.setOnClickListener(){
-            // faz a comparação com o usuário criado no SharedPreferenc
-            if( email.text.toString() == sharedPreferences.getString("email", "admin") &&
-                senha.text.toString() == sharedPreferences.getString("senha", "2020")){
-                // iniciar a MainActivity
-                startActivity(Intent(this, MainActivity::class.java ))
-            }else{
-                // mostrar mensagem de erro
-                val snackbar = Snackbar.make(binding.root, "Usuário ou senha inválidos", Snackbar.LENGTH_LONG)
-                snackbar.show()
+            val login = Login()
+
+            // valida se os dados foram preenchidos
+            if (email.text.toString().isEmpty()) {
+                email.error = "Preencha o email"
+                email.requestFocus()
+                return@setOnClickListener
             }
+
+            // verifica se o email é válido
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
+                email.error = "Email inválido"
+                email.requestFocus()
+                return@setOnClickListener
+            }
+
+            // verifica se a senha tem mais de 6 caracteres numéricos
+            if (senha.text.toString().length < 6) {
+                senha.error = "A senha deve ter mais de 6 caracteres"
+                senha.requestFocus()
+                return@setOnClickListener
+            }
+
+            // salva os dados no objeto login
+            login.email = email.text.toString()
+            login.senha = senha.text.toString()
+
+            if (login.autenticar()) {
+                if (login.emailVerificado()) {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Snackbar.make(binding.root, "Email não verificado", Snackbar.LENGTH_LONG).show()
+                }
+            } else {
+                Snackbar.make(binding.root, "Email ou senha incorretos", Snackbar.LENGTH_LONG).show()
+            }
+        }
+
+        // botão para recuperar a senha
+        binding.buttonForgotPassword.setOnClickListener(){
+            val login = Login()
+
+            // valida se os dados foram preenchidos
+            if (email.text.toString().isEmpty()) {
+                email.error = "Preencha o email"
+                email.requestFocus()
+                return@setOnClickListener
+            }
+
+            // verifica se o email é válido usando a classe Util
+            if (!Util.validarEmail(email.text.toString())) {
+                email.error = "Email inválido"
+                email.requestFocus()
+                return@setOnClickListener
+            }
+
+            // salva os dados no objeto login
+            login.email = email.text.toString()
+
+            login.enviarEmailRecuperacao()
+            Snackbar.make(binding.root, "Email enviado", Snackbar.LENGTH_LONG).show()
         }
     }
 }

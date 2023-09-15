@@ -4,8 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import tech.tancy.tancy.data.CompromissoAdapter
+import tech.tancy.tancy.data.Compromissos
+import tech.tancy.tancy.data.ListaCompromissos
 import tech.tancy.tancy.databinding.ActivityCadastroBinding
-import tech.tancy.tancy.databinding.ActivityDetalhesBinding
 import tech.tancy.tancy.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

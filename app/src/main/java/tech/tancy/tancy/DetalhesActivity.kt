@@ -1,11 +1,9 @@
 package tech.tancy.tancy
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import tech.tancy.tancy.data.ListaCompromissos
 import tech.tancy.tancy.databinding.ActivityDetalhesBinding
-import tech.tancy.tancy.databinding.ActivityEditarBinding
 
 class DetalhesActivity : AppCompatActivity(){
 
