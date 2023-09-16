@@ -30,6 +30,8 @@ class LoginActivity : AppCompatActivity() {
                 val editor = sharedPreferences.edit()
                 editor.putString("email", email.text.toString())
                 editor.putString("senha", senha.text.toString())
+                // adiciona um logado true para saber se o usuário está logado
+                editor.putBoolean("logado", true)
                 editor.apply()
             }
         }
@@ -65,34 +67,24 @@ class LoginActivity : AppCompatActivity() {
             }
 
             // verifica se o email é válido
-            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
+            if (!Util.validarEmail(email.text.toString())) {
                 email.error = "Email inválido"
                 email.requestFocus()
                 return@setOnClickListener
             }
 
             // verifica se a senha tem mais de 6 caracteres numéricos
-            if (senha.text.toString().length < 6) {
+            if (!Util.validarSenha(senha.text.toString())) {
                 senha.error = "A senha deve ter mais de 6 caracteres"
                 senha.requestFocus()
                 return@setOnClickListener
             }
 
-            // salva os dados no objeto login
-            login.email = email.text.toString()
-            login.senha = senha.text.toString()
 
-            if (login.autenticar()) {
-                if (login.emailVerificado()) {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    Snackbar.make(binding.root, "Email não verificado", Snackbar.LENGTH_LONG).show()
-                }
-            } else {
-                Snackbar.make(binding.root, "Email ou senha incorretos", Snackbar.LENGTH_LONG).show()
-            }
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+
+
         }
 
         // botão para recuperar a senha
@@ -118,6 +110,37 @@ class LoginActivity : AppCompatActivity() {
 
             login.enviarEmailRecuperacao()
             Snackbar.make(binding.root, "Email enviado", Snackbar.LENGTH_LONG).show()
+        }
+
+        // botão para criar um novo usuário
+        binding.buttonCreateAccount.setOnClickListener(){
+            val login = Login()
+
+            // valida se os dados foram preenchidos
+            if (email.text.toString().isEmpty()) {
+                email.error = "Preencha o email"
+                email.requestFocus()
+                return@setOnClickListener
+            }
+
+            // verifica se o email é válido usando a classe Util
+            if (!Util.validarEmail(email.text.toString())) {
+                email.error = "Email inválido"
+                email.requestFocus()
+                return@setOnClickListener
+            }
+
+            // verifica se a senha tem mais de 6 caracteres numéricos
+            if (!Util.validarSenha(senha.text.toString())) {
+                senha.error = "A senha deve ter mais de 6 caracteres"
+                senha.requestFocus()
+                return@setOnClickListener
+            }
+
+
+            // inicia a MainActivity
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 }

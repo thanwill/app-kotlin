@@ -3,14 +3,75 @@ package tech.tancy.tancy
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import tech.tancy.tancy.data.CompromissoAdapter
 import tech.tancy.tancy.data.Compromissos
 import tech.tancy.tancy.data.ListaCompromissos
+import tech.tancy.tancy.databinding.ActivityAppBinding
 import tech.tancy.tancy.databinding.ActivityCadastroBinding
 import tech.tancy.tancy.databinding.ActivityMainBinding
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAppBinding
+
+    private lateinit var buttonLista : Button
+    private lateinit var buttonCadastro : Button
+    private lateinit var buttonPerfil : Button
+
+    private lateinit var listaFragment: Fragment
+    private lateinit var cadastroFragment: Fragment
+    private lateinit var perfilFragment: Fragment
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityAppBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+        buttonLista = binding.buttonListaCompromissos
+        buttonCadastro = binding.buttonAddCompromisso
+        buttonPerfil = binding.buttonPerfil
+
+        buttonLista.setOnClickListener(this)
+        buttonPerfil.setOnClickListener(this)
+        buttonCadastro.setOnClickListener(this)
+
+        perfilFragment = PerfilFragment()
+        cadastroFragment = CadastroFragment()
+        listaFragment = ListaFragment()
+
+
+
+
+    }
+
+    // método responsável por gerenciar a troca de fragmentos
+    private fun trocarFragmento(fragmento: Fragment){
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.frameLayoutFragment, fragmento) // e substituir o fragmento atual pelo fragmento passado como parâmetro
+            commit()// e por fim, confirmar a transação
+        }
+    }
+
+    // método responsável por gerenciar os cliques nos botões, e chamar o método trocarFragmento
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.buttonListaCompromissos -> {
+                trocarFragmento(listaFragment)
+            }
+            R.id.buttonAddCompromisso -> {
+                trocarFragmento(cadastroFragment)
+            }
+            R.id.buttonPerfil -> {
+                trocarFragmento(perfilFragment)
+            }
+        }
+    }
+
+}
+class MainActivity2 : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var compromissoAdapter: CompromissoAdapter

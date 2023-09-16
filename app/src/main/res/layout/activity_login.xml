@@ -63,17 +63,13 @@
         android:text="Acessar" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/buttonCreateAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="E-mail: admin" />
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Não tem uma conta? Cadastre-se" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Senha: 2020" />
+
 
 </LinearLayout>

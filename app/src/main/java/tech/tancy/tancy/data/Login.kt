@@ -10,6 +10,7 @@ class Login {
 
     // usa a autenticacao do firebase para verificar se o usuário existe
     fun autenticar(): Boolean {
+        // verifica se o usuário existe no firebase
         auth.signInWithEmailAndPassword(email!!, senha!!).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 return@addOnCompleteListener
@@ -33,6 +34,7 @@ class Login {
 
     // cria um usuário no firebase
     fun criarUsuario(): Boolean {
+
         auth.createUserWithEmailAndPassword(email!!, senha!!).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 return@addOnCompleteListener

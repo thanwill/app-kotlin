@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Lista de compromissos"
+        android:textSize="28dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:text="Consulte aqui suas tarefas para os próximos dias." />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCompromissos"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/buttonAddCompromisso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adicionar" />
+
+
+</LinearLayout>
