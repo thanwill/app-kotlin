@@ -20,10 +20,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var buttonLista : Button
     private lateinit var buttonCadastro : Button
     private lateinit var buttonPerfil : Button
+    private lateinit var buttonDetalhes : Button
 
     private lateinit var listaFragment: Fragment
     private lateinit var cadastroFragment: Fragment
     private lateinit var perfilFragment: Fragment
+    private lateinit var detalhesFragment: Fragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAppBinding.inflate(layoutInflater)
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         buttonLista = binding.buttonListaCompromissos
         buttonCadastro = binding.buttonAddCompromisso
         buttonPerfil = binding.buttonPerfil
+
 
         buttonLista.setOnClickListener(this)
         buttonPerfil.setOnClickListener(this)

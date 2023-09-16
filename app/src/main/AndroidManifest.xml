@@ -26,7 +26,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="Registros">
+            android:label="Tancy Tech">
 
         </activity>
         <activity
@@ -37,6 +37,11 @@
             android:name=".CadastroActivity"
             android:exported="true"
             android:label="Cadastro"></activity>
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="true"
+            android:label="Mensagem"></activity>
+
 
 
 

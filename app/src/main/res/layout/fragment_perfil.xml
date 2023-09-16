@@ -1,62 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PerfilFragment">
 
-    <!-- fragment_profile.xml -->
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <View
+        android:id="@+id/view3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/vermelho_vivo"
-        android:padding="16dp">
+        android:layout_height="300dp" />
 
-        <!-- Foto de perfil -->
-        <ImageView
-            android:id="@+id/profile_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Página de perfil"
+        android:textSize="28dp"
+        android:textStyle="bold|italic" />
 
-        <!-- Nome do usuário -->
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nome do Usuário"
-            android:textSize="18sp"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="16dp"/>
-
-        <!-- E-mail -->
-        <TextView
-            android:id="@+id/user_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="usuario@email.com"
-            android:textSize="14sp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"/>
-
-        <!-- Descrição -->
-        <TextView
-            android:id="@+id/user_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:text="Breve descrição do usuário."
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"/>
-
-        <!-- Outros elementos do perfil podem ser adicionados aqui -->
-
-    </LinearLayout>
-
-
-</FrameLayout>
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="Sair" />
+</LinearLayout>

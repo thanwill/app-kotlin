@@ -13,9 +13,17 @@ import tech.tancy.tancy.databinding.FragmentListaBinding
 
 class PerfilFragment : Fragment() {
 
+
     // Função que cria a activity do fragmento
+    // ativa o biding para o fragmento
+    private lateinit var binding: ActivityAppBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
+
 
     }
 
@@ -39,17 +47,6 @@ class ListaFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        compromissoAdapter = CompromissoAdapter(requireContext())
-
-        binding.recyclerCompromissos.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerCompromissos.adapter = compromissoAdapter
-
-
-        binding.buttonAddCompromisso.setOnClickListener(){
-            // iniciar a CadastroActivity
-            startActivity(Intent(requireContext(), CadastroActivity::class.java ))
-
-        }
 
     }
 
@@ -84,4 +81,23 @@ class CadastroFragment : Fragment() {
     companion object {
 
     }
+}
+
+class DetalhesFragment : Fragment(){
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+        }
+
+        override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle? // Bundle é um objeto que contém um conjunto de pares chave/valor que podem ser usados para armazenar dados primitivos
+        ): View? {
+            return inflater.inflate(R.layout.fragment_detalhes, container, false) // Infla o layout do fragmento
+        }
+
+        companion object {
+
+        }
 }

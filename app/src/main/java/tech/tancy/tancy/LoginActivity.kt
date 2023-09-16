@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar
 import tech.tancy.tancy.data.Login
 import tech.tancy.tancy.data.Util
 import tech.tancy.tancy.databinding.ActivityLoginBinding
+import tech.tancy.tancy.databinding.ActivityMessageBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -109,7 +110,11 @@ class LoginActivity : AppCompatActivity() {
             login.email = email.text.toString()
 
             login.enviarEmailRecuperacao()
-            Snackbar.make(binding.root, "Email enviado", Snackbar.LENGTH_LONG).show()
+
+            // DIRECIONA PARA A ACTIVITY DE RECUPERAR A SENHA
+            startActivity(Intent(this, ForgotPasswordActivity::class.java).apply {
+                putExtra("email", email.text.toString())
+            })
         }
 
         // botão para criar um novo usuário
@@ -142,5 +147,29 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+    }
+}
+
+// cria uma activity para mensagem de esqueceu a senha
+
+class ForgotPasswordActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMessageBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMessageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // pega o email enviado pela intent
+        val email = intent.getStringExtra("email")
+
+        // mostra o email na tela
+
+        binding.textViewMessage.text = "Um email foi enviado para $email"
+
+        binding.buttonBack.setOnClickListener(){
+            finish()
+        }
+
+
     }
 }
