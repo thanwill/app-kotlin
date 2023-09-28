@@ -26,29 +26,35 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var cadastroFragment: Fragment
     private lateinit var perfilFragment: Fragment
     private lateinit var detalhesFragment: Fragment
+    private lateinit var loginFragment: Fragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         buttonLista = binding.buttonListaCompromissos
         buttonCadastro = binding.buttonAddCompromisso
         buttonPerfil = binding.buttonPerfil
-
 
         buttonLista.setOnClickListener(this)
         buttonPerfil.setOnClickListener(this)
         buttonCadastro.setOnClickListener(this)
 
         perfilFragment = PerfilFragment()
-        cadastroFragment = CadastroFragment()
+        cadastroFragment = CompromissoFragment()
         listaFragment = ListaFragment()
+        loginFragment = LoginFragment()
 
+        // oculta o linearLayoutBotoes'
+        binding.linearLayoutBotoes.visibility = View.GONE
 
+        // inicia o fragmento de login
+        trocarFragmento(loginFragment)
 
 
     }
+
+    //
 
     // método responsável por gerenciar a troca de fragmentos
     private fun trocarFragmento(fragmento: Fragment){

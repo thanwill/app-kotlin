@@ -7,10 +7,15 @@ import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
 import com.google.android.material.snackbar.Snackbar
+import tech.tancy.tancy.data.AppDatabase
 import tech.tancy.tancy.data.Login
+import tech.tancy.tancy.data.User
+import tech.tancy.tancy.data.UserDAO
 import tech.tancy.tancy.data.Util
+import tech.tancy.tancy.databinding.ActivityCadastroPerfilBinding
 import tech.tancy.tancy.databinding.ActivityLoginBinding
 import tech.tancy.tancy.databinding.ActivityMessageBinding
+
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -85,7 +90,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
 
-
         }
 
         // botão para recuperar a senha
@@ -119,39 +123,13 @@ class LoginActivity : AppCompatActivity() {
 
         // botão para criar um novo usuário
         binding.buttonCreateAccount.setOnClickListener(){
-            val login = Login()
-
-            // valida se os dados foram preenchidos
-            if (email.text.toString().isEmpty()) {
-                email.error = "Preencha o email"
-                email.requestFocus()
-                return@setOnClickListener
-            }
-
-            // verifica se o email é válido usando a classe Util
-            if (!Util.validarEmail(email.text.toString())) {
-                email.error = "Email inválido"
-                email.requestFocus()
-                return@setOnClickListener
-            }
-
-            // verifica se a senha tem mais de 6 caracteres numéricos
-            if (!Util.validarSenha(senha.text.toString())) {
-                senha.error = "A senha deve ter mais de 6 caracteres"
-                senha.requestFocus()
-                return@setOnClickListener
-            }
-
-
-            // inicia a MainActivity
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, Cadastrar::class.java))
             finish()
         }
     }
 }
 
 // cria uma activity para mensagem de esqueceu a senha
-
 class ForgotPasswordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMessageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -169,6 +147,39 @@ class ForgotPasswordActivity : AppCompatActivity() {
         binding.buttonBack.setOnClickListener(){
             finish()
         }
+
+
+    }
+}
+
+// activity para tela de cadastro de novos usuários activity_cadastro_perfil.xml
+
+class Cadastrar : AppCompatActivity(){
+    private lateinit var binding: ActivityCadastroPerfilBinding
+    private lateinit var userDAO: UserDAO
+
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        binding = ActivityCadastroPerfilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        userDAO = AppDatabase.getInstance(this).userDAO()
+
+        val nome = binding.editTextUserName.text
+        val email = binding.editTextUserEmailAddress.text
+        val senha = binding.editTextUserNumberPassword.text
+
+        binding.buttonCreateAccount.setOnClickListener(){
+            val usuario = User(0, nome.toString(), email.toString(), senha.toString())
+            userDAO.insert(usuario)
+
+            // exibe os dados do usuário cadastrado no textViewUsuario
+            binding.textViewUsuario.text = usuario.toString()
+
+            //startActivity(Intent(this, LoginActivity::class.java))
+            //finish()
+        }
+
 
 
     }

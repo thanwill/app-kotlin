@@ -63,7 +63,7 @@
         android:text="Acessar" />
 
     <TextView
-        android:id="@+id/buttonCreateAccount"
+        android:id="@+id/buttonCreateAccount2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"

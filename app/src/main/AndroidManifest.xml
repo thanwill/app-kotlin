@@ -17,16 +17,17 @@
             android:name=".LoginActivity"
             android:exported="true"
             android:label="Entrar">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="Tancy Tech">
+
 
         </activity>
         <activity
@@ -41,6 +42,10 @@
             android:name=".ForgotPasswordActivity"
             android:exported="true"
             android:label="Mensagem"></activity>
+        <activity
+            android:name=".Cadastrar"
+            android:exported="true"
+            android:label="Criar usuário"></activity>
 
 
 
