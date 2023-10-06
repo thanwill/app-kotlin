@@ -1,6 +1,5 @@
 package tech.tancy.tancy.ui.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -38,6 +37,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
             commit()// e por fim, confirmar a transação
         }
     }
+
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.buttonProduto -> {
