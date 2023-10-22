@@ -11,4 +11,8 @@ class ConvidadoRepository( context: Context) {
     fun salvarConvidado(convidado: Convidado): Boolean {
         return convidadoDao.salvarConvidado(convidado) > 0
     }
+
+    fun getConvidados(): List<Convidado> {
+        return convidadoDao.selecionarTodosConvidados()
+    }
 }

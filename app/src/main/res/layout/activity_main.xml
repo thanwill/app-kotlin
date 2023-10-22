@@ -9,12 +9,10 @@
     tools:context=".ui.activities.MainActivity">
 
 
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista_convidados"
         android:layout_width="match_parent"
-        android:layout_height="626dp">
-
-    </FrameLayout>
+        android:layout_height="622dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,24 +22,11 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonProduto"
+            android:id="@+id/buttonCadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Produto" />
+            android:text="Cadastro" />
 
-        <Button
-            android:id="@+id/buttonCompras"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="Compras" />
-
-        <Button
-            android:id="@+id/buttonPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="Perfil" />
     </LinearLayout>
 </LinearLayout>
