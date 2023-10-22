@@ -4,22 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.CadastroActivity">
+    tools:context=".ui.CadastroActivity">
 
     <!-- Outros elementos do seu layout aqui -->
 
+    <Button
+        android:id="@+id/buttonCadastrar"
+        android:layout_width="141dp"
+        android:layout_height="57dp"
+        android:text="Cadastrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="395dp"
+        android:layout_height="585dp"
+        android:layout_marginBottom="130dp"
         android:orientation="vertical"
         android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textViewTitleActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:minHeight="48dp"
             android:text="Cadastre um convidado"
             android:textSize="28dp"
             android:textStyle="bold" />
@@ -37,7 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:ems="10"
-            android:hint="Nome completo" />
+            android:hint="Nome completo"
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
@@ -46,7 +64,8 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:hint="E-mail"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/editTextPhone"
@@ -55,19 +74,9 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:hint="Telefone"
-            android:inputType="phone" />
-    </LinearLayout>
+            android:inputType="phone"
+            android:minHeight="48dp" />
 
-    <Button
-        android:id="@+id/buttonCadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="24dp"
-        android:text="Cadastrar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_marginBottom="16dp"
-        app:layout_marginEnd="16dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
