@@ -1,9 +1,12 @@
-package tech.tancy.tancy.data
+package tech.tancy.tancy.repository
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import tech.tancy.tancy.model.Convidado
 
+@Database(entities = [Convidado::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {
 
     abstract fun convidadoDao(): ConvidadoDao

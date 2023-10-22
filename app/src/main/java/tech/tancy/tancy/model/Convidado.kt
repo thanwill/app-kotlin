@@ -1,4 +1,4 @@
-package tech.tancy.tancy.data
+package tech.tancy.tancy.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
